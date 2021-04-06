@@ -1,0 +1,12 @@
+var removeDuplicates = function(nums) {
+    for (let i = 0; i < nums.length - 2; i++) {
+        var first = nums[i];
+        var second = nums[i+1];
+        var third = nums[i+2];
+        if (first === second && second === third) {
+            nums.splice(i+2, 1);
+            i--;
+        } 
+    }
+    return nums.length
+};
