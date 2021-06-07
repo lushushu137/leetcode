@@ -1,0 +1,29 @@
+var maxArea = function(height) {
+    // 暴力超时
+    // let res = 0;
+    // for (let x = 0; x < height.length; x++) {
+    //     for (let i = x + 1; i < height.length; i++){
+    //         let xDistance = i - x;
+    //         let yDistance = height[i] < height[x] ? height[i] : height[x];
+    //         res = xDistance * yDistance > res ? xDistance * yDistance : res;
+    //     }
+    // }
+    // return res;
+    
+    // 双指针 
+    let res = 0;
+    let i = 0;
+    let j = height.length - 1;
+    while (i<=j) {
+        let xDistance = j - i;
+        let min = height[i] < height[j] ? height[i] : height[j];
+        res = xDistance * min > res ? xDistance * min : res;
+        if (min==height[i]) {
+            i++;
+        } else {
+            j--;
+        }
+    }
+    return res;
+
+};
